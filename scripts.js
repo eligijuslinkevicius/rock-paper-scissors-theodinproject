@@ -3,17 +3,24 @@ function getComputerChoice() {
     return ["Rock", "Paper", "Scissors"][randomNumberFromZeroToTwo];
 }
 
-function playRound(playerSelection, computerSelection) {
-    const player = playerSelection.toLowerCase();
-    if ((player === "rock" && computerSelection === "Scissors") || (player === "scissors" && computerSelection === "Paper") || (player === "paper" && computerSelection === "Rock"))
-        return "Player wins!";
-    else if ((computerSelection === "Rock" && player === "scissors") || (computerSelection === "Scissors" && player === "paper") || (computerSelection === "Paper" && player === "rock"))
-        return "Computer wins!";
-    else
-        return "Tie! Try again.";
+function playRound(computerSelection) {
+    const player = prompt("Choose rock, paper or scissors:").toLowerCase();
+    if (player === "")
+        alert("Invalid input. Choose rock, paper or scissors!");
+    else {
+        if ((player === "rock" && computerSelection === "Scissors") || (player === "scissors" && computerSelection === "Paper") || (player === "paper" && computerSelection === "Rock"))
+            return "Player wins!";
+        else if ((computerSelection === "Rock" && player === "scissors") || (computerSelection === "Scissors" && player === "paper") || (computerSelection === "Paper" && player === "rock"))
+            return "Computer wins!";
+        else
+            return "Tie! Try again.";
+    }
 }
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log("Computer chose " + computerSelection);
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    for (let i = 0; i < 5; i++) {
+        alert(playRound("Rock", getComputerChoice()));
+    }
+}
+
+game();
