@@ -3,8 +3,7 @@ function getComputerChoice() {
     return ["Rock", "Paper", "Scissors"][randomNumberFromZeroToTwo];
 }
 
-function playRound(computerSelection) {
-    const player = prompt("Choose rock, paper or scissors:").toLowerCase();
+function playRound(player, computerSelection) {
     if (player === "")
         alert("Invalid input. Choose rock, paper or scissors!");
     else {
@@ -18,8 +17,20 @@ function playRound(computerSelection) {
 }
 
 function game() {
-    for (let i = 0; i < 5; i++) {
-        alert(playRound("Rock", getComputerChoice()));
+    const rockButton = document.getElementById("rock-button");
+    const paperButton = document.getElementById("paper-button");
+    const scissorsButton = document.getElementById("scissors-button");
+
+    rockButton.onclick = function() {
+        playRound("rock", getComputerChoice());
+    }
+
+    paperButton.onclick = function() {
+        playRound("paper", getComputerChoice());
+    }
+
+    scissorsButton.onclick = function() {
+        playRound("scissors", getComputerChoice());
     }
 }
 
