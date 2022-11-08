@@ -1,3 +1,6 @@
+let playerCount = 0;
+let computerCount = 0;
+
 function getComputerChoice() {
     const randomNumberFromZeroToTwo = Math.floor(Math.random() * 3);
     return ["Rock", "Paper", "Scissors"][randomNumberFromZeroToTwo];
@@ -22,16 +25,51 @@ function game() {
     const scissorsButton = document.getElementById("scissors-button");
 
     rockButton.onclick = function() {
-        playRound("rock", getComputerChoice());
+        updateResults(playRound("rock", getComputerChoice()));
     }
 
     paperButton.onclick = function() {
-        playRound("paper", getComputerChoice());
+        updateResults(playRound("paper", getComputerChoice()));
     }
 
     scissorsButton.onclick = function() {
-        playRound("scissors", getComputerChoice());
+        updateResults(playRound("scissors", getComputerChoice()));
     }
+}
+let player = 0;
+let computer = 0;
+function updateResults(result) {
+    const playerResults = document.getElementById("player-results");
+    const computerResults = document.getElementById("computer-results");
+    const results = document.getElementById("results");
+    const tieStatus = document.getElementById("tie");
+
+    switch (result) {
+        case "Player wins!":
+            player += 1;
+            playerResults.innerHTML = `Player: ${player}`;
+            tieStatus.innerHTML = "";
+            break;
+        case "Computer wins!":
+            computer += 1;
+            computerResults.innerHTML = `Computer: ${computer}`;
+            tieStatus.innerHTML = "";
+            break;
+        case "Tie! Try again.":
+            tieStatus.innerHTML = "Tie! Try again."
+            break;
+    }
+
+    if (player === 5) {
+        player = 0;
+        computer = 0;
+        results.innerHTML = "Player won!"
+    } else if (computer === 5) {
+        player = 0;
+        computer = 0;
+        results.innerHTML = "Computer won!"
+    }
+
 }
 
 game();

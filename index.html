@@ -3,13 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&family=Lobster&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
     <title>Rock Paper Scissors</title>
   </head>
-  <body style="background-color: #555">
-    <h1 style="font-family: sans-serif; text-align: center">Rock Paper Scissors</h1>
-    <button type="button" id="rock-button">Rock</button>
-    <button type="button" id="paper-button">Paper</button>
-    <button type="button" id="scissors-button">Scissors</button>
+  <body>
+    <h1>Rock Paper Scissors</h1>
+
+    <div id="results-container">
+      <section id="player-results">Player: 0</section>
+      <section id="computer-results">Computer: 0</section>
+    </div>
+
+    <section id="tie"></section>
+
+    <div id="buttons">
+      <button type="button" id="rock-button">Rock</button>
+      <button type="button" id="paper-button">Paper</button>
+      <button type="button" id="scissors-button">Scissors</button>
+    </div>
+
+    <span id="results"></span>
 
     <script src="./scripts.js"></script>
   </body>
